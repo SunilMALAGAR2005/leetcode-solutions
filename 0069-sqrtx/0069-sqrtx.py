@@ -3,10 +3,10 @@ class Solution:
         l=1
         r=x
         while l<=r:
-            m=(r-l)//2+l
-            if m>x/m:
+            m=(r+l)//2
+            if m*m>x:
                 r=m-1
-            elif m<x/m:
+            elif m*m<x:
                 l=m+1
             else:
                 return m
