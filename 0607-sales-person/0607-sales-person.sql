@@ -1,0 +1,9 @@
+SELECT T1.NAME 
+FROM SalesPerson T1
+WHERE NOT EXISTS (
+    SELECT 1 
+    FROM Orders O
+    JOIN Company C ON O.COM_ID = C.COM_ID
+    WHERE O.SALES_ID = T1.SALES_ID
+    AND C.NAME = 'RED'
+);
