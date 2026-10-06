@@ -2,7 +2,7 @@ class Solution:
     def isIsomorphic(self, s: str, t: str) -> bool:
         map_s_t={}
         map_t_s={}
-        if len(s)!=len(t):
+        if len(set(s))!=len(set(t)):
             return False
         for c1,c2 in zip(s,t):
             if c1 in map_s_t and map_s_t[c1]!=c2:
