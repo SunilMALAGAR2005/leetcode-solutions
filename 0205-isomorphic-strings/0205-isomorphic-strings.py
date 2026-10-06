@@ -1,14 +1,12 @@
 class Solution:
     def isIsomorphic(self, s: str, t: str) -> bool:
-        map_s_t={}
-        map_t_s={}
         if len(set(s))!=len(set(t)):
             return False
-        for c1,c2 in zip(s,t):
-            if c1 in map_s_t and map_s_t[c1]!=c2:
+        hash_map={}
+        for ch in range(len(s)):
+            if t[ch] not in hash_map:
+                hash_map[t[ch]]=s[ch]
+            elif hash_map[t[ch]]!=s[ch]:
                 return False
-            if c2 in map_t_s and map_t_s[c2]!=c1:
-                return False
-            map_s_t[c1]=c2
-            map_t_s[c2]=c1
         return True
+                
